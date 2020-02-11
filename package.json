@@ -1,0 +1,55 @@
+{
+  "name": "codebox",
+  "version": "1.0.0",
+  "license": "ISC",
+  "description": "Code syntax highlighting tool for Editor.js",
+  "keywords": [
+    "Editor.js",
+    "Code",
+    "Code Syntax",
+    "Code highlight",
+    "Syntax highlight"
+  ],
+  "author": "Adombang Munang Mbomndih <dzedock@gmail.com> (https://bomdisoft.com)",
+  "contributors": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BomdiZane/codebox.git"
+  },
+  "engines": {
+    "node": "12.1.0",
+    "npm": "6.12.1"
+  },
+  "scripts": {
+    "build": "webpack --progress",
+    "build:dev": "webpack --mode development --watch",
+    "start": "babel-node test.js"
+  },
+  "devDependencies": {
+    "@babel/core": "7.5.5",
+    "@babel/node": "^7.0.0",
+    "@babel/plugin-proposal-object-rest-spread": "7.5.5",
+    "@babel/preset-env": "7.5.5",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "8.0.6",
+    "clean-webpack-plugin": "3.0.0",
+    "css-loader": "^1.0.0",
+    "eslint": "^6.6.0",
+    "style-loader": "^0.21.0",
+    "terser-webpack-plugin": "^1.4.1",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.7"
+  },
+  "babel": {
+    "presets": [
+      "@babel/env"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-object-rest-spread"
+    ]
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.min.js"
+}
