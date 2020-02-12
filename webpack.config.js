@@ -1,12 +1,11 @@
-const path = require('path'),
-  TerserPlugin = require('terser-webpack-plugin'),
-  { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const path = require('path');
 
 module.exports = {
   mode: 'production',
   entry: path.normalize(`${__dirname}/src/index.js`),
   output: {
     path: path.normalize(`${__dirname}/dist`),
+    publicPath: '/',
     filename: 'index.min.js',
     library: 'CodeBox',
     libraryTarget: 'umd',
@@ -16,7 +15,14 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        loader: 'babel-loader',
+        use: [
+          {
+            loader: 'babel-loader',
+            query: {
+              presets: ['@babel/preset-env'],
+            },
+          },
+        ],
         exclude: /node_modules/,
       },
       {
@@ -26,21 +32,6 @@ module.exports = {
           'css-loader'
         ]
       }
-    ]
-  },
-  plugins: [
-    new CleanWebpackPlugin(),
-  ],
-  optimization: {
-    minimizer: [
-      new TerserPlugin({
-        cache: true,
-        parallel: true,
-        sourceMap: true,
-        terserOptions: {
-          ecma: 6,
-        }
-      }),
     ]
   }
 };

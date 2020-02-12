@@ -10,7 +10,7 @@
 
 //#region imports
 require('./style.css').toString();
-import { DEFAULT_THEMES, COMMON_LANGUAGES } from './constants';
+const { DEFAULT_THEMES, COMMON_LANGUAGES } = require('./constants');
 //#endregion
 
 class CodeBox {
@@ -177,4 +177,5 @@ class CodeBox {
 }
 
 
-export default CodeBox;
+// export default CodeBox;
+module.exports = CodeBox;

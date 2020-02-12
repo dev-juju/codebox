@@ -23,33 +23,23 @@
   "scripts": {
     "build": "webpack --progress",
     "build:dev": "webpack --mode development --watch",
-    "start": "babel-node test.js"
+    "start": "node test.js"
   },
   "devDependencies": {
     "@babel/core": "7.5.5",
     "@babel/node": "^7.8.4",
-    "@babel/plugin-proposal-object-rest-spread": "7.5.5",
     "@babel/preset-env": "7.5.5",
     "babel-eslint": "^10.0.3",
     "babel-loader": "8.0.6",
-    "clean-webpack-plugin": "3.0.0",
     "css-loader": "^1.0.0",
     "eslint": "^6.8.0",
     "style-loader": "^0.21.0",
-    "terser-webpack-plugin": "^1.4.1",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.7"
-  },
-  "babel": {
-    "presets": [
-      "@babel/env"
-    ],
-    "plugins": [
-      "@babel/plugin-proposal-object-rest-spread"
-    ]
   },
   "files": [
     "dist"
   ],
-  "main": "dist/index.min.js"
+  "main": "dist/index.min.js",
+  "dependencies": {}
 }
