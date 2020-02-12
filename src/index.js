@@ -46,6 +46,10 @@ class CodeBox {
     };
   }
 
+  static get displayInToolbox() {
+    return true;
+  }
+
   static get enableLineBreaks() {
     return true;
   }
@@ -68,14 +72,13 @@ class CodeBox {
   }
 
   save(blockContent){
-    console.log({ code: this.codeArea.textContent, theme: this._getThemeURLFromConfig() });
     return Object.assign(this.data, { code: this.codeArea.textContent, theme: this._getThemeURLFromConfig() });
   }
 
-  validate(savedData){
-    if (!savedData.code.trim()) return false;
-    return true;
-  }
+  // validate(savedData){
+  //   if (!savedData.code.trim()) return false;
+  //   return true;
+  // }
 
   destroy(){
     this.api.listeners.off(window, 'click', this._closeAllLanguageSelects, true);
