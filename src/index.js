@@ -185,4 +185,4 @@ const commonLanguages = {
 };
 
 
-export { CodeBox as default };
+module.exports = CodeBox;

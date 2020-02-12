@@ -10,7 +10,6 @@ module.exports = {
     filename: 'index.min.js',
     library: 'CodeBox',
     libraryTarget: 'umd',
-    globalObject: "typeof self !== 'undefined' ? self : this"
   },
   module: {
     rules: [
