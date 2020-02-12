@@ -25,7 +25,7 @@
 
 .codeBoxSelectInput{
   border-radius: 0 0 20px 2px;
-  padding: 2px 25px;
+  padding: 2px 26px;
   padding-top: 0;
   padding-right: 0;
   text-align: left;
@@ -35,9 +35,12 @@
 }
 
 .codeBoxSelectDropIcon{
-  position: absolute;
-  left: 10px;
-  top: 5%;
+  position: absolute !important;
+  left: 10px !important;
+  bottom: 0 !important;
+  width: unset !important;
+  height: unset !important;
+  font-size: 16px !important;
 }
 
 .codeBoxSelectPreview{

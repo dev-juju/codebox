@@ -25,6 +25,7 @@ class CodeBox {
     this.data = {
       code: data.code && typeof data.code === 'string' ? data.code : '',
       language: data.language && typeof data.language === 'string' ? data.language : 'Auto-detect',
+      theme: data.theme && typeof data.theme === 'string' ? data.theme : this._getThemeURLFromConfig(),
     };
     this.highlightScriptID = 'highlightJSScriptElement';
     this.highlightCSSID = 'highlightJSCSSElement';
@@ -68,7 +69,7 @@ class CodeBox {
 
   save(blockContent){
     const codeArea = blockContent.querySelector('div');
-    return Object.assign(this.data, { code: codeArea.innerHTML });
+    return Object.assign(this.data, { code: codeArea.innerHTML, theme: this._getThemeURLFromConfig() });
   }
 
   validate(savedData){
@@ -159,10 +160,7 @@ class CodeBox {
 
   _injectHighlightJSCSSElement(){
     const highlightJSCSSElement = document.querySelector(`#${ this.highlightCSSID }`);
-    let highlightJSCSSURL = `https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/atom-one-${ this.config.useDefaultTheme }.min.css`;
-
-    if (this.config.themeName) highlightJSCSSURL = `https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/${ this.config.themeName }.min.css`;
-    if (this.config.themeURL) highlightJSCSSURL = this.config.themeURL;
+    let highlightJSCSSURL = this._getThemeURLFromConfig();
     if (!highlightJSCSSElement) {
       const link = document.createElement('link');
       const head = document.querySelector('head');
@@ -174,8 +172,16 @@ class CodeBox {
     }
     else highlightJSCSSElement.setAttribute('href', highlightJSCSSURL);
   }
+
+  _getThemeURLFromConfig(){
+    let themeURL = `https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/atom-one-${ this.config.useDefaultTheme }.min.css`;
+
+    if (this.config.themeName) themeURL = `https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.1/build/styles/${ this.config.themeName }.min.css`;
+    if (this.config.themeURL) themeURL = this.config.themeURL;
+
+    return themeURL;
+  }
 }
 
 
-// export default CodeBox;
 module.exports = CodeBox;
