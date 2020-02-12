@@ -8,7 +8,10 @@
   */
 
 
-require('./index.css').toString();
+//#region imports
+require('./style.css').toString();
+import { DEFAULT_THEMES, COMMON_LANGUAGES } from './constants';
+//#endregion
 
 class CodeBox {
   constructor({ data, api, config }){
@@ -17,7 +20,7 @@ class CodeBox {
       themeName: config.themeName && typeof config.themeName === 'string' ? config.themeName : '',
       themeURL: config.themeURL && typeof config.themeURL === 'string' ? config.themeURL : '',
       useDefaultTheme: (config.useDefaultTheme && typeof config.useDefaultTheme === 'string'
-        && defaultThemes.includes(config.useDefaultTheme.toLowerCase())) ? config.useDefaultTheme : 'dark',
+        && DEFAULT_THEMES.includes(config.useDefaultTheme.toLowerCase())) ? config.useDefaultTheme : 'dark',
     };
     this.data = {
       code: data.code && typeof data.code === 'string' ? data.code : '',
@@ -25,7 +28,6 @@ class CodeBox {
     };
     this.highlightScriptID = 'highlightJSScriptElement';
     this.highlightCSSID = 'highlightJSCSSElement';
-    this.languages = commonLanguages;
     this.codeArea = document.createElement('div');
     this.selectInput = document.createElement('input');
     this.selectDropIcon = document.createElement('i');
@@ -84,7 +86,7 @@ class CodeBox {
   _createLanguageSelectElement(){
     const selectHolder = document.createElement('div');
     const selectPreview = document.createElement('div');
-    const languages = Object.entries(this.languages);
+    const languages = Object.entries(COMMON_LANGUAGES);
 
     selectHolder.setAttribute('class', 'codeBoxSelectDiv');
 
@@ -174,15 +176,5 @@ class CodeBox {
   }
 }
 
-const defaultThemes = ['light', 'dark'];
-const commonLanguages = {
-  none: 'Auto-detect', apache: 'Apache', bash: 'Bash', cs: 'C#', cpp: 'C++', css: 'CSS', coffeescript: 'CoffeeScript', diff: 'Diff',
-  go: 'Go', html: 'HTML, XML', http: 'HTTP', json: 'JSON', java: 'Java', javascript: 'JavaScript', kotlin: 'Kotlin',
-  less: 'Less', lua: 'Lua', makefile: 'Makefile', markdown: 'Markdown', nginx: 'Nginx', objectivec: 'Objective-C',
-  php: 'PHP', perl: 'Perl', properties: 'Properties', python: 'Python', ruby: 'Ruby', rust: 'Rust', scss: 'SCSS',
-  sql: 'SQL', shell: 'Shell Session', swift: 'Swift', toml: 'TOML, also INI', typescript: 'TypeScript', yaml: 'YAML',
-  plaintext: 'Plaintext'
-};
 
-
-module.exports = CodeBox;
+export default CodeBox;

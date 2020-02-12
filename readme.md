@@ -16,8 +16,6 @@ npm i --save-dev @bomdi/codebox
 Add to your module/application
 
 ```javascript
-import CodeBox from '@bomdi/codebox';
-OR
 const CodeBox = require('@bomdi/codebox');
 ```
 
