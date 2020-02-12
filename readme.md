@@ -10,15 +10,15 @@ Code syntax highlighting tool for [Editor.js](https://editorjs.io/)
 ### Install via NPM
 
 ```shell
-npm i --save-dev code-box
+npm i --save-dev @bomdi/codebox
 ```
 
 Add to your module/application
 
 ```javascript
-import CodeBox from 'code-box';
+import CodeBox from '@bomdi/codebox';
 OR
-const CodeBox = require('code-box');
+const CodeBox = require('@bomdi/codebox');
 ```
 
 
