@@ -57,7 +57,7 @@ class CodeBox {
     codeAreaHolder.setAttribute('class', 'codeBoxHolder');
     this.codeArea.setAttribute('class', `codeBoxTextArea ${ this.config.useDefaultTheme } ${ this.data.language }`);
     this.codeArea.setAttribute('contenteditable', true);
-    this.codeArea.innerHTML = this.data.code;
+    this.codeArea.textContent = this.data.code;
     this.api.listeners.on(this.codeArea, 'blur', event => this._highlightCodeArea(event), false);
     this.api.listeners.on(this.codeArea, 'paste', event => this._handleCodeAreaPaste(event), false);
 
@@ -68,8 +68,8 @@ class CodeBox {
   }
 
   save(blockContent){
-    const codeArea = blockContent.querySelector('div');
-    return Object.assign(this.data, { code: codeArea.innerHTML, theme: this._getThemeURLFromConfig() });
+    console.log({ code: this.codeArea.textContent, theme: this._getThemeURLFromConfig() });
+    return Object.assign(this.data, { code: this.codeArea.textContent, theme: this._getThemeURLFromConfig() });
   }
 
   validate(savedData){
