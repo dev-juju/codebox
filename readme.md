@@ -1,7 +1,7 @@
 # CodeBox
 
-![npm](https://img.shields.io/npm/v/@bomdi/codebox)
-![npm](https://img.shields.io/npm/dw/@bomdi/codebox)
+[![](https://img.shields.io/npm/v/@bomdi/codebox)](https://www.npmjs.com/package/@bomdi/codebox)
+[![](https://img.shields.io/npm/dw/@bomdi/codebox)](https://www.npmjs.com/package/@bomdi/codebox)
 [![](https://flat.badgen.net/npm/license/@bomdi/codebox)](https://www.npmjs.com/package/@bomdi/codebox)
 
 Code syntax highlighting tool for [Editor.js](https://editorjs.io/)
