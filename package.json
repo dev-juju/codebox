@@ -16,10 +16,6 @@
     "type": "git",
     "url": "git+https://github.com/BomdiZane/codebox.git"
   },
-  "engines": {
-    "node": "12.1.0",
-    "npm": "6.12.1"
-  },
   "scripts": {
     "build": "webpack --progress",
     "build:dev": "webpack --mode development --watch",
