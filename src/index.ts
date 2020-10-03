@@ -7,6 +7,10 @@
   * @author - Adombang Munang Mbomndih (Bomdi) <dzedock@gmail.com> (https://bomdisoft.com)
   */
 
+import rangy from 'rangy'
+import 'rangy/lib/rangy-textrange.js'
+import 'rangy/lib/rangy-selectionsaverestore.js'
+
 import { DEFAULT_THEMES, COMMON_LANGUAGES } from './constants';
 
 type CodeboxConfig = {
@@ -89,10 +93,11 @@ export default class CodeBox {
 
     codeAreaHolder.setAttribute('class', 'codeBoxHolder');
     this.codeArea.setAttribute('class', `codeBoxTextArea ${ this.config.useDefaultTheme } ${ this.data.language }`);
-    this.codeArea.setAttribute('contenteditable', true);
+    this.codeArea.setAttribute('contenteditable', 'true');
     this.codeArea.innerHTML = this.data.code;
-    this.api.listeners.on(this.codeArea, 'blur', event => this._highlightCodeArea(event), false);
+    this.api.listeners.on(this.codeArea, 'blur', event =>  this._highlightCodeArea(event), false);
     this.api.listeners.on(this.codeArea, 'paste', event => this._handleCodeAreaPaste(event), false);
+    this.api.listeners.on(this.codeArea, 'keyup', event => this._highlightCodeArea(event), false)
 
     codeAreaHolder.appendChild(this.codeArea);
     codeAreaHolder.appendChild(languageSelect);
@@ -100,11 +105,11 @@ export default class CodeBox {
     return codeAreaHolder;
   }
 
-  save(blockContent){
+  save(){
     return Object.assign(this.data, { code: this.codeArea.innerHTML, theme: this._getThemeURLFromConfig() });
   }
 
-  validate(savedData){
+  validate(){
     if (!savedData.code.trim()) return false;
     return true;
   }
@@ -151,7 +156,10 @@ export default class CodeBox {
   }
 
   _highlightCodeArea(event){
+    const savedSel = rangy.saveSelection();
+    console.log(rangy)
     hljs.highlightBlock(this.codeArea);
+    rangy.restoreSelection(savedSel);
   }
 
   _handleCodeAreaPaste(event){
