@@ -1,4 +1,5 @@
 const path = require('path');
+const { ESBuildPlugin } = require('esbuild-loader')
 
 module.exports = {
   mode: 'production',
@@ -14,15 +15,10 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        use: [
-          {
-            loader: 'babel-loader',
-            query: {
-              presets: ['@babel/preset-env'],
-            },
-          },
-        ],
-        exclude: /node_modules/,
+        loader: 'esbuild-loader',
+        options: {
+          target: 'es2015',
+        }
       },
       {
         test: /\.css$/,
@@ -32,5 +28,8 @@ module.exports = {
         ]
       }
     ]
-  }
+  },
+  plugins: [
+    new ESBuildPlugin()
+  ]
 };
