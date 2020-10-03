@@ -7,11 +7,7 @@
   * @author - Adombang Munang Mbomndih (Bomdi) <dzedock@gmail.com> (https://bomdisoft.com)
   */
 
-
-//#region imports
-require('./style.css').toString();
 import { DEFAULT_THEMES, COMMON_LANGUAGES } from './constants';
-//#endregion
 
 type CodeboxConfig = {
   themeName:        string;
