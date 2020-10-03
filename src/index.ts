@@ -14,6 +14,7 @@ type CodeboxConfig = {
   themeURL:         string;
   useDefaultTheme:  string;
   languages?:       string[];
+  toolbarTitle?:    string;
 }
 
 type CodeboxData = {
@@ -22,7 +23,7 @@ type CodeboxData = {
   theme: string;
 }
 
-class CodeBox {
+export default class CodeBox {
 
   public api:    any;
   public config: CodeboxConfig;
@@ -213,6 +214,3 @@ class CodeBox {
     return themeURL;
   }
 }
-
-
-module.exports = CodeBox;

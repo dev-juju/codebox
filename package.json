@@ -23,7 +23,7 @@
     "url": "git+https://github.com/BomdiZane/codebox.git"
   },
   "scripts": {
-    "build": "esbuild --bundle --outfile=\"./dist/index.min.js\" --platform=\"browser\" --minify ./src/index.ts",
+    "build": "esbuild --bundle --outfile=\"./dist/index.min.js\" --global-name=\"CodeBox\" --platform=\"browser\" ./src/index.ts && cp ./src/style.css ./dist/style.css",
     "start": "node test.js"
   },
   "devDependencies": {
