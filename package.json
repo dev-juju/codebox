@@ -11,7 +11,13 @@
     "Syntax highlight"
   ],
   "author": "Adombang Munang Mbomndih <dzedock@gmail.com> (https://bomdisoft.com)",
-  "contributors": [],
+  "contributors": [
+    {
+      "name": "Michele Riva",
+      "url": "https://micheleriva.it",
+      "email": "michele.riva@hackdoor.io"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/BomdiZane/codebox.git"
@@ -22,11 +28,6 @@
     "start": "node test.js"
   },
   "devDependencies": {
-    "@babel/core": "7.5.5",
-    "@babel/node": "^7.8.4",
-    "@babel/preset-env": "7.5.5",
-    "babel-eslint": "^10.0.3",
-    "babel-loader": "8.0.6",
     "css-loader": "^1.0.0",
     "esbuild": "^0.7.9",
     "esbuild-loader": "^2.4.0",
