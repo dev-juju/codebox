@@ -70,7 +70,7 @@ class CodeBox {
     this.codeArea.setAttribute('class', `codeBoxTextArea ${ this.config.useDefaultTheme } ${ this.data.language }`);
     this.codeArea.setAttribute('contenteditable', true);
     this.codeArea.innerHTML = this.data.code;
-    this.api.listeners.on(this.codeArea, 'blur', event => this._highlightCodeArea(event), false);
+    this.api.listeners.on(this.codeArea, 'keyup', event => this._highlightCodeArea(event), false);
     this.api.listeners.on(this.codeArea, 'paste', event => this._handleCodeAreaPaste(event), false);
 
     codeAreaHolder.appendChild(this.codeArea);
