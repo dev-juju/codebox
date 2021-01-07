@@ -134,7 +134,11 @@ class CodeBox {
   }
 
   _handleCodeAreaPaste(event){
+    event.preventDefault();
     event.stopPropagation();
+
+    const text = event.clipboardData.getData("text/plain");
+    document.execCommand('insertHTML', false, text);
   }
 
   _handleSelectInputClick(event){
