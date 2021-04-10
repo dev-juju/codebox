@@ -8,6 +8,11 @@ Code syntax highlighting tool for [Editor.js](https://editorjs.io/)
 
 ![](https://firebasestorage.googleapis.com/v0/b/bomdisoft-28c17.appspot.com/o/images%2FCodeBox.png?alt=media&token=565a0782-f684-4f7d-8430-dfd4a5bdaa11)
 
+## 💗 If you like this package 💗
+
+Support us on Patreon
+
+ 👉  [https://www.patreon.com/devjuju](https://www.patreon.com/devjuju)
 
 ## Installation
 
