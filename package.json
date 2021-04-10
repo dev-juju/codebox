@@ -1,6 +1,6 @@
 {
   "name": "@bomdi/codebox",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "license": "ISC",
   "description": "Code syntax highlighting tool for Editor.js",
   "keywords": [
@@ -14,7 +14,7 @@
   "contributors": [],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/BomdiZane/codebox.git"
+    "url": "git+https://github.com/dev-juju/codebox.git"
   },
   "scripts": {
     "build": "webpack --progress",
