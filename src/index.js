@@ -14,8 +14,9 @@ const { DEFAULT_THEMES, COMMON_LANGUAGES } = require('./constants');
 //#endregion
 
 class CodeBox {
-  constructor({ data, api, config }){
+  constructor({ data, api, config, readOnly}){
     this.api = api;
+    this.readOnly = readOnly;
     this.config = {
       themeName: config.themeName && typeof config.themeName === 'string' ? config.themeName : '',
       themeURL: config.themeURL && typeof config.themeURL === 'string' ? config.themeURL : '',
@@ -54,6 +55,10 @@ class CodeBox {
     };
   }
 
+  static get isReadOnlySupported() {
+    return true;
+  }
+
   static get displayInToolbox() {
     return true;
   }
@@ -72,6 +77,12 @@ class CodeBox {
     this.codeArea.innerHTML = this.data.code;
     this.api.listeners.on(this.codeArea, 'blur', event => this._highlightCodeArea(event), false);
     this.api.listeners.on(this.codeArea, 'paste', event => this._handleCodeAreaPaste(event), false);
+
+    if(this.readOnly) {
+      this.codeArea.setAttribute('contenteditable', false);
+    } else {
+      this.codeArea.setAttribute('contenteditable', true);
+    }
 
     codeAreaHolder.appendChild(this.codeArea);
     codeAreaHolder.appendChild(languageSelect);
