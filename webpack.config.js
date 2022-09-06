@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   mode: 'production',
-  entry: path.normalize(`${__dirname}/src/index.js`),
+  entry: path.normalize(`${__dirname}/src/index.ts`),
   output: {
     path: path.normalize(`${__dirname}/dist`),
     publicPath: '/',
@@ -13,14 +13,22 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|ts)$/,
         use: [
           {
             loader: 'babel-loader',
-            query: {
+            options: {
               presets: ['@babel/preset-env'],
             },
           },
+          {
+            loader: 'ts-loader',
+            options: {
+              compilerOptions: {
+                noEmit: false,
+              },
+            },
+          }
         ],
         exclude: /node_modules/,
       },
@@ -32,5 +40,8 @@ module.exports = {
         ]
       }
     ]
-  }
+  },
+  resolve: {
+    extensions: ['.ts', '.js'],
+  },
 };

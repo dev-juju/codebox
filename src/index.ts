@@ -5,15 +5,37 @@
   * @version 1.0.0
   * @created - 2020.02.12
   * @author - Adombang Munang Mbomndih (Bomdi) <dzedock@gmail.com> (https://bomdisoft.com)
+  *
+  * Version History
+  * ---------------
+  * @version 2.0.0 - 2022.09.06 - Use TypeScript - Adombang Munang Mbomndih
   */
 
 
 //#region imports
 require('./style.css').toString();
-const { DEFAULT_THEMES, COMMON_LANGUAGES } = require('./constants');
 //#endregion
 
+const DEFAULT_THEMES = ['light', 'dark'];
+const COMMON_LANGUAGES = {
+  none: 'Auto-detect', apache: 'Apache', bash: 'Bash', cs: 'C#', cpp: 'C++', css: 'CSS', coffeescript: 'CoffeeScript', diff: 'Diff',
+  go: 'Go', html: 'HTML, XML', http: 'HTTP', json: 'JSON', java: 'Java', javascript: 'JavaScript', kotlin: 'Kotlin',
+  less: 'Less', lua: 'Lua', makefile: 'Makefile', markdown: 'Markdown', nginx: 'Nginx', objectivec: 'Objective-C',
+  php: 'PHP', perl: 'Perl', properties: 'Properties', python: 'Python', ruby: 'Ruby', rust: 'Rust', scss: 'SCSS',
+  sql: 'SQL', shell: 'Shell Session', swift: 'Swift', toml: 'TOML, also INI', typescript: 'TypeScript', yaml: 'YAML',
+  plaintext: 'Plaintext'
+};
+
 class CodeBox {
+  api: any;
+  config: { themeName: any; themeURL: any; useDefaultTheme: any; };
+  data: { code: any; language: any; theme: any; };
+  highlightScriptID: string;
+  highlightCSSID: string;
+  codeArea: HTMLDivElement;
+  selectInput: HTMLInputElement;
+  selectDropIcon: HTMLElement;
+
   constructor({ data, api, config }){
     this.api = api;
     this.config = {
@@ -68,7 +90,7 @@ class CodeBox {
 
     codeAreaHolder.setAttribute('class', 'codeBoxHolder');
     this.codeArea.setAttribute('class', `codeBoxTextArea ${ this.config.useDefaultTheme } ${ this.data.language }`);
-    this.codeArea.setAttribute('contenteditable', true);
+    this.codeArea.setAttribute('contenteditable', 'true');
     this.codeArea.innerHTML = this.data.code;
     this.api.listeners.on(this.codeArea, 'blur', event => this._highlightCodeArea(event), false);
     this.api.listeners.on(this.codeArea, 'paste', event => this._handleCodeAreaPaste(event), false);
@@ -106,7 +128,7 @@ class CodeBox {
     this.selectDropIcon.innerHTML = '&#8595;';
     this.selectInput.setAttribute('class', `codeBoxSelectInput ${ this.config.useDefaultTheme }`);
     this.selectInput.setAttribute('type', 'text');
-    this.selectInput.setAttribute('readonly', true);
+    this.selectInput.setAttribute('readonly', 'true');
     this.selectInput.value = this.data.language;
     this.api.listeners.on(this.selectInput, 'click', event => this._handleSelectInputClick(event), false);
 
@@ -130,7 +152,7 @@ class CodeBox {
   }
 
   _highlightCodeArea(event){
-    hljs.highlightBlock(this.codeArea);
+    window.hljs.highlightBlock(this.codeArea);
   }
 
   _handleCodeAreaPaste(event){
@@ -147,7 +169,7 @@ class CodeBox {
     this.codeArea.removeAttribute('class');
     this.data.language = language[0];
     this.codeArea.setAttribute('class', `codeBoxTextArea ${ this.config.useDefaultTheme } ${ this.data.language }`);
-    hljs.highlightBlock(this.codeArea);
+    window.hljs.highlightBlock(this.codeArea);
   }
 
   _closeAllLanguageSelects(){
@@ -195,4 +217,4 @@ class CodeBox {
 }
 
 
-module.exports = CodeBox;
+export default CodeBox;

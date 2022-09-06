@@ -3,20 +3,13 @@
 [![](https://img.shields.io/npm/v/@bomdi/codebox)](https://www.npmjs.com/package/@bomdi/codebox)
 [![](https://img.shields.io/npm/dw/@bomdi/codebox)](https://www.npmjs.com/package/@bomdi/codebox)
 [![](https://flat.badgen.net/npm/license/@bomdi/codebox)](https://www.npmjs.com/package/@bomdi/codebox)
+[![](https://flat.badgen.net/badge/icon/typescript?icon=typescript&label)](https://www.npmjs.com/package/@bomdi/codebox)
 
 Code syntax highlighting tool for [Editor.js](https://editorjs.io/)
 
-![](https://firebasestorage.googleapis.com/v0/b/bomdisoft-28c17.appspot.com/o/images%2FCodeBox.png?alt=media&token=565a0782-f684-4f7d-8430-dfd4a5bdaa11)
+## Setup
 
-## 💗 If you like this package 💗
-
-Support us on Patreon
-
- 👉  [https://www.patreon.com/devjuju](https://www.patreon.com/devjuju)
-
-## Installation
-
-### Install via NPM
+Install the package via NPM
 
 ```shell
 npm i @bomdi/codebox
@@ -25,6 +18,8 @@ npm i @bomdi/codebox
 Add to your module/application
 
 ```javascript
+import CodeBox from '@bomdi/codebox';
+OR
 const CodeBox = require('@bomdi/codebox');
 ```
 
@@ -106,8 +101,8 @@ export default CodeBlock;
 
 ## Author
 
-Adombang Munang Mbomndih (Bomdi)
+Dev Juju
 
-LinkedIn: [LinkedIn](http://www.linkedin.com/in/adombangmunang)
+[Contact Us](https://bomdisoft.com)
 
-![](https://firebasestorage.googleapis.com/v0/b/editorjs-react-renderer.appspot.com/o/Bomdi%202.jpg?alt=media&token=323c4b3e-8542-4031-9660-74280a8cfefc)
+[Learn](https://devjuju.com)

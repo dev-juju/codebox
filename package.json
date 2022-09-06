@@ -1,6 +1,6 @@
 {
   "name": "@bomdi/codebox",
-  "version": "1.0.12",
+  "version": "2.0.0",
   "license": "ISC",
   "description": "Code syntax highlighting tool for Editor.js",
   "keywords": [
@@ -22,20 +22,22 @@
     "start": "node test.js"
   },
   "devDependencies": {
-    "@babel/core": "7.5.5",
-    "@babel/node": "^7.8.4",
-    "@babel/preset-env": "7.5.5",
+    "@babel/core": "7.19.0",
+    "@babel/node": "^7.18.10",
+    "@babel/preset-env": "7.19.0",
+    "@types/node": "^18.7.15",
     "babel-eslint": "^10.0.3",
-    "babel-loader": "8.0.6",
-    "css-loader": "^1.0.0",
-    "eslint": "^6.8.0",
-    "style-loader": "^0.21.0",
-    "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.7"
+    "babel-loader": "8.2.5",
+    "css-loader": "^6.7.1",
+    "eslint": "^8.23.0",
+    "style-loader": "^3.3.1",
+    "ts-loader": "^9.3.1",
+    "typescript": "^4.8.2",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
   },
   "files": [
     "dist"
   ],
-  "main": "dist/index.min.js",
-  "dependencies": {}
+  "main": "dist/index.min.js"
 }
