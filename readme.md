@@ -1,5 +1,17 @@
 # CodeBox
 
+> ## Deprecated
+>
+> **This package is no longer maintained. Its successor is [Clepit](https://clepit.com).**
+>
+> Clepit is a block-style editor and renderer from the same team. Its editor ships a code block with syntax highlighting, so CodeBox is no longer needed.
+>
+> - Editing documents, code blocks included: [`@clepit/core`](https://www.npmjs.com/package/@clepit/core)
+> - Rendering documents in React: [`@clepit/react`](https://www.npmjs.com/package/@clepit/react)
+> - Block types and JSON shapes: [clepit.com/docs/blocks](https://clepit.com/docs/blocks)
+>
+> Existing installs keep working. The documentation below remains for legacy use.
+
 [![](https://img.shields.io/npm/v/@bomdi/codebox)](https://www.npmjs.com/package/@bomdi/codebox)
 [![](https://img.shields.io/npm/dw/@bomdi/codebox)](https://www.npmjs.com/package/@bomdi/codebox)
 [![](https://flat.badgen.net/npm/license/@bomdi/codebox)](https://www.npmjs.com/package/@bomdi/codebox)
